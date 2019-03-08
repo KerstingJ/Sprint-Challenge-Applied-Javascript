@@ -19,7 +19,7 @@ class Carousel {
         this.btnRight.addEventListener("mousedown", this.contRight.bind(this));
     }
     contLeft(){
-        this.left.bind(this);// rotate on click
+        this.left();// rotate on click
         let event = setInterval(this.left.bind(this), 800);
 
         let stop = ()=>{
@@ -30,9 +30,9 @@ class Carousel {
         this.btnLeft.addEventListener("mouseup", stop);
     }
     contRight(){
-        this.right.bind(this);
+        this.right();
         let event = setInterval(this.right.bind(this), 800);
-        
+
         let stop = ()=>{
             clearInterval(event)
             this.btnRight.removeEventListener("mouseup", stop);
