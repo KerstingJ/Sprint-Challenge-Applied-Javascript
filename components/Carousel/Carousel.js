@@ -19,24 +19,26 @@ class Carousel {
         this.btnRight.addEventListener("mousedown", this.contRight.bind(this));
     }
     contLeft(){
-        let event = setInterval(this.left.bind(this), 800)
-        this.left.bind(this)
-        let myFunc = ()=>{
+        this.left.bind(this);// rotate on click
+        let event = setInterval(this.left.bind(this), 800);
+
+        let stop = ()=>{
             clearInterval(event)
-            this.btnLeft.removeEventListener("mouseup", myFunc);
+            this.btnLeft.removeEventListener("mouseup", stop);
         }
 
-        this.btnLeft.addEventListener("mouseup", myFunc);
+        this.btnLeft.addEventListener("mouseup", stop);
     }
     contRight(){
-        let event = setInterval(this.right.bind(this), 800)
-        this.right.bind(this)
-        let myFunc = ()=>{
+        this.right.bind(this);
+        let event = setInterval(this.right.bind(this), 800);
+        
+        let stop = ()=>{
             clearInterval(event)
-            this.btnRight.removeEventListener("mouseup", myFunc);
+            this.btnRight.removeEventListener("mouseup", stop);
         }
 
-        this.btnRight.addEventListener("mouseup", myFunc);
+        this.btnRight.addEventListener("mouseup", stop);
     }
 
     left(){
